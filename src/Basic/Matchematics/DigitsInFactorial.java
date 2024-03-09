@@ -1,4 +1,4 @@
-package Basic;
+package Basic.Matchematics;
 /**
  *
  *Given an integer N. Find the number of digits that appear in its factorial.
