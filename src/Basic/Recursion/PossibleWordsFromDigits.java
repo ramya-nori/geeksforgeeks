@@ -42,23 +42,21 @@ import java.util.Collections;
  *
  ***/
 public class PossibleWordsFromDigits {
-    static String[] numberToCharMap;
+    static String[] numberMap;
 
-    private static ArrayList<String> printWords(int[] numbers,
-                                                int len,
+    private static ArrayList<String> printWords(int[] a,
+                                                int N,
                                                 int numIndex,
-                                                String s) {
-        if (len == numIndex) {
-            return new ArrayList<>(Collections.singleton(s));
+                                                String curr) {
+        if (numIndex == N) {
+            return new ArrayList<>(Collections.singleton(curr));
         }
-
-        ArrayList<String> stringList = new ArrayList<>();
-
-        for (int i = 0; i < numberToCharMap[numbers[numIndex]].length(); i++) {
-            String sCopy = s + numberToCharMap[numbers[numIndex]].charAt(i);
-            stringList.addAll(printWords(numbers, len, numIndex + 1, sCopy));
+        ArrayList<String> response = new ArrayList<>();
+        for(int i = 0; i < numberMap[a[numIndex]].length(); i++) {
+            String sCopy = curr + numberMap[a[numIndex]].charAt(i);
+            response.addAll(printWords(a, N, numIndex + 1, sCopy));
         }
-        return stringList;
+        return response;
     }
 
     //Function to find list of all words possible by pressing given numbers.
@@ -69,16 +67,16 @@ public class PossibleWordsFromDigits {
     }
 
     static void generateNumberToCharMap() {
-        numberToCharMap = new String[10];
-        numberToCharMap[0] = "\0";
-        numberToCharMap[1] = "\0";
-        numberToCharMap[2] = "abc";
-        numberToCharMap[3] = "def";
-        numberToCharMap[4] = "ghi";
-        numberToCharMap[5] = "jkl";
-        numberToCharMap[6] = "mno";
-        numberToCharMap[7] = "pqrs";
-        numberToCharMap[8] = "tuv";
-        numberToCharMap[9] = "wxyz";
+        numberMap = new String[10];
+        numberMap[0] = "\0";
+        numberMap[1] = "\0";
+        numberMap[2] = "abc";
+        numberMap[3] = "def";
+        numberMap[4] = "ghi";
+        numberMap[5] = "jkl";
+        numberMap[6] = "mno";
+        numberMap[7] = "pqrs";
+        numberMap[8] = "tuv";
+        numberMap[9] = "wxyz";
     }
 }
