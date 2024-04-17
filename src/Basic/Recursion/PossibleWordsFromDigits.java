@@ -55,8 +55,7 @@ public class PossibleWordsFromDigits {
         ArrayList<String> stringList = new ArrayList<>();
 
         for (int i = 0; i < numberToCharMap[numbers[numIndex]].length(); i++) {
-            String sCopy = s;
-            sCopy = sCopy.concat(String.valueOf(numberToCharMap[numbers[numIndex]].charAt(i)));
+            String sCopy = s + numberToCharMap[numbers[numIndex]].charAt(i);
             stringList.addAll(printWords(numbers, len, numIndex + 1, sCopy));
         }
         return stringList;
